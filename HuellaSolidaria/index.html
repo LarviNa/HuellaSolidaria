@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huella Solidaria</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,7 +19,7 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
@@ -31,7 +32,6 @@
                             <a class="dropdown-item" href="#">Producto 3</a>
                         </div>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,7 +43,6 @@
                             <a class="dropdown-item" href="#">Servicio C</a>
                         </div>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,7 +55,6 @@
                             <a class="dropdown-item" href="#">Fundación Z</a>
                         </div>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +67,13 @@
                         </div>
                     </li>
                 </ul>
+
+                <div class="ml-auto">
+                    <a href="login.html" class="nav-link text-light" data-toggle="tooltip" data-placement="bottom" title="Iniciar Sesión">
+                        <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+
             </div>
         </nav>
     </header>
@@ -118,14 +123,6 @@
                 <h2>¡Únete a la Causa!</h2>
                 <p>
                     En <strong>Huella Solidaria</strong>, creemos en el poder de la colaboración para transformar vidas.
-                    Nuestro
-                    objetivo es dejar una marca positiva en el mundo, un acto de bondad a la vez. Desde la ayuda a
-                    comunidades vulnerables hasta la protección del medio ambiente, cada pequeño esfuerzo cuenta.
-                </p>
-                <p>
-                    Explora nuestras iniciativas y descubre cómo puedes contribuir. Juntos, podemos construir un futuro
-                    más justo y equitativo. Tu participación es clave para el éxito de nuestros proyectos. ¡Únete a
-                    nosotros y sé parte del cambio!
                 </p>
             </section>
         </div>
@@ -167,6 +164,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="reglas.js"></script>
 </body>
 
 </html>
