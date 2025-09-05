@@ -1,30 +1,28 @@
-$(document).ready(function() {
-    
-    // Inicializa los tooltips de Bootstrap
-    $('[data-toggle="tooltip"]').tooltip();
-    
-    // --- LÓGICA PARA EL FORMULARIO DE REGISTRO ---
+$(document).ready(function () {
 
-    $('#btnRegistrar').on('click', function() {
-        
-        // Obtener los valores de los campos del formulario
-        const nombre = $('#registroNombre').val().trim();
-        const apellido = $('#registroApellido').val().trim();
-        const email = $('#registroEmail').val().trim();
-        const telefono = $('#registroTelefono').val().trim();
-        const password = $('#registroPassword').val().trim();
-        const confirmarPassword = $('#confirmarPassword').val().trim();
-        const mensajeErrorDiv = $('#mensajeError');
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('#btnRegistrarForm2').on('click', function (e) {
+        e.preventDefault();
+
+        const nombre = $('#validationServer01').val().trim();
+        const apellido = $('#validationServer02').val().trim();
+        const rut = $('#validationServer05').val().trim();
+        const username = $('#validationServerUsername').val().trim();
+        const region = $('#validationServer04').val();
+        const ciudad = $('#validationServer03').val().trim();
+        const telefono = $('#telefonoForm2').val().trim();
+        const password = $('#validationServer06').val().trim();
+        const mensajeErrorDiv = $('#mensajeErrorForm2');
 
         mensajeErrorDiv.addClass('d-none');
 
-        // Realizar las validaciones
-        if (nombre === '' || apellido === '' || email === '' || telefono === '' || password === '' || confirmarPassword === '') {
+        if (nombre === '' || apellido === '' || rut === '' || username === '' || region === '' || ciudad === '' || telefono === '' || password === '') {
             mensajeErrorDiv.text('Por favor, completa todos los campos.').removeClass('d-none');
             return;
         }
 
-        const soloLetrasRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
+        const soloLetrasRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
         if (!soloLetrasRegex.test(nombre)) {
             mensajeErrorDiv.text('El nombre solo puede contener letras.').removeClass('d-none');
             return;
@@ -34,55 +32,77 @@ $(document).ready(function() {
             return;
         }
 
+        const rutRegex = /^\d{7,8}[0-9Kk]$/;
+        if (!rutRegex.test(rut)) {
+            mensajeErrorDiv.text('El RUT debe tener 7 u 8 dígitos seguidos de un dígito o K.').removeClass('d-none');
+            return;
+        }
+
+        if (username.length < 4) {
+            mensajeErrorDiv.text('El nombre de usuario debe tener al menos 4 caracteres.').removeClass('d-none');
+            return;
+        }
+
+        if (region === '' || region === null) {
+            mensajeErrorDiv.text('Selecciona una región.').removeClass('d-none');
+            return;
+        }
+
+        if (ciudad.length < 2) {
+            mensajeErrorDiv.text('La ciudad debe tener al menos 2 caracteres.').removeClass('d-none');
+            return;
+        }
+
         const telefonoRegex = /^9\d{8}$/;
         if (!telefonoRegex.test(telefono)) {
             mensajeErrorDiv.text('El teléfono debe comenzar con 9 y tener 9 dígitos.').removeClass('d-none');
             return;
         }
 
-        if (!email.includes('@') || !email.includes('.')) {
-            mensajeErrorDiv.text('Por favor, ingresa un correo válido.').removeClass('d-none');
-            return;
-        }
-        
-        // --- NUEVA VALIDACIÓN DE CONTRASEÑA ---
         if (password.length < 8) {
             mensajeErrorDiv.text('La contraseña debe tener al menos 8 caracteres.').removeClass('d-none');
             return;
         }
-        if (!/[A-Z]/.test(password)) {
-            mensajeErrorDiv.text('La contraseña debe contener al menos una letra mayúscula.').removeClass('d-none');
-            return;
-        }
-        if (!/[0-9]/.test(password)) {
-            mensajeErrorDiv.text('La contraseña debe contener al menos un número.').removeClass('d-none');
-            return;
-        }
-        if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) {
-            mensajeErrorDiv.text('La contraseña debe contener al menos un símbolo (ej: !@#$).').removeClass('d-none');
-            return;
-        }
-        // --- FIN DE LA NUEVA VALIDACIÓN ---
-
-        if (password !== confirmarPassword) {
-            mensajeErrorDiv.text('Las contraseñas no coinciden.').removeClass('d-none');
-            return;
-        }
-
-
-        // Si todas las validaciones pasan...
-        console.log('Formulario validado correctamente.');
-        alert('¡Registro exitoso! Gracias por unirte a Huella Solidaria.');
         
-        $('#registroModal').modal('hide');
-        
-        // Limpia los campos del formulario
-        $('#registroNombre, #registroApellido, #registroEmail, #registroTelefono, #registroPassword, #confirmarPassword').val('');
+        window.location.href = 'login.html';
+
+        $('#validationServer01, #validationServer02, #validationServer05, #validationServerUsername, #validationServer04, #validationServer03, #telefonoForm2, #validationServer06').val('');
     });
 
-    // Limpiar el div de error cuando el modal se cierra
-    $('#registroModal').on('hidden.bs.modal', function () {
-        $('#mensajeError').addClass('d-none');
+    $('#form2').on('reset', function () {
+        $('#mensajeErrorForm2').addClass('d-none');
     });
 
+});
+
+$(document).ready(function (){
+    $('#btnIniciarLogin').on('click', function (e) {
+        e.preventDefault();
+        const username = $('#validationServer01').val().trim();
+        const password = $('#validationServer02').val().trim();
+        const mensajeErrorDiv = $('#mensajeErrorLogin');
+        mensajeErrorDiv.addClass('d-none');
+
+        if (username === '' || password === '') {
+            mensajeErrorDiv.text('Por favor, completa todos los campos.').removeClass('d-none');
+            return;
+        }
+
+        if (username.length < 4) {
+            mensajeErrorDiv.text('El nombre de usuario debe tener al menos 4 caracteres.').removeClass('d-none');
+            return;
+        }
+
+        if (password.length < 8) {
+            mensajeErrorDiv.text('La contraseña debe tener al menos 8 caracteres.').removeClass('d-none');
+            return;
+        }
+
+        window.location.href = 'index.html';
+        $('#validationServer01, #validationServer02').val('');
+    });
+
+    $('#loginForm').on('reset', function () {
+        $('#mensajeErrorLogin').addClass('d-none');
+    });
 });
