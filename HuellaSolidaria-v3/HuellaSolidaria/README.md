@@ -1,2 +1,0 @@
-# HuellaSolidaria
-proyecto fullstack II
