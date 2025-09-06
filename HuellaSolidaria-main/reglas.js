@@ -1,95 +1,133 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-    $('[data-toggle="tooltip"]').tooltip();
 
-    $('#btnRegistrarForm2').on('click', function (e) {
-        e.preventDefault(); 
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
-        const nombre = $('#registroNombre').val().trim();
-        const apellido = $('#registroApellidos').val().trim();
-        const rut = $('#registroRUT').val().trim();
-        const username = $('#registroUsername').val().trim();
-        const region = $('#registroRegion').val();
-        const ciudad = $('#registroCiudad').val().trim();
-        const telefono = $('#registroTelefono').val().trim();
-        const password = $('#registroPassword').val().trim();
-        const mensajeErrorDiv = $('#mensajeErrorForm2');
+    const btnRegistrar = document.getElementById('btnRegistrarForm2');
+    const btnLogin = document.getElementById('btnIniciarLogin');
 
-        mensajeErrorDiv.addClass('d-none'); 
+    const registroModalEl = document.getElementById('registroModal');
+    const loginModalEl = document.getElementById('loginModal');
+    
+    const registroModal = new bootstrap.Modal(registroModalEl);
+    const loginModal = new bootstrap.Modal(loginModalEl);
 
-        if (nombre === '' || apellido === '' || rut === '' || username === '' || region === null || ciudad === '' || telefono === '' || password === '') {
-            mensajeErrorDiv.text('Por favor, completa todos los campos.').removeClass('d-none');
-            return;
-        }
+    if (btnRegistrar) {
+        btnRegistrar.addEventListener('click', function (e) {
+            e.preventDefault(); 
+            const nombre = document.getElementById('registroNombre').value.trim();
+            const apellido = document.getElementById('registroApellidos').value.trim();
+            const rut = document.getElementById('registroRUT').value.trim();
+            const username = document.getElementById('registroUsername').value.trim();
+            const region = document.getElementById('registroRegion').value;
+            const ciudad = document.getElementById('registroCiudad').value.trim();
+            const telefono = document.getElementById('registroTelefono').value.trim();
+            const password = document.getElementById('registroPassword').value.trim();
+            const mensajeErrorDiv = document.getElementById('mensajeErrorForm2');
+            const form = document.getElementById('form2');
 
-        const soloLetrasRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
-        if (!soloLetrasRegex.test(nombre)) {
-            mensajeErrorDiv.text('El nombre solo puede contener letras.').removeClass('d-none');
-            return;
-        }
-        if (!soloLetrasRegex.test(apellido)) {
-            mensajeErrorDiv.text('El apellido solo puede contener letras.').removeClass('d-none');
-            return;
-        }
+            mensajeErrorDiv.classList.add('d-none');
 
-        const rutRegex = /^\d{7,8}-[0-9Kk]$/;
-        if (!rutRegex.test(rut)) {
-            mensajeErrorDiv.text('El RUT debe tener un formato válido (ej: 12345678-9).').removeClass('d-none');
-            return;
-        }
+            if (nombre === '' || apellido === '' || rut === '' || username === '' || region === '' || ciudad === '' || telefono === '' || password === '') {
+                mensajeErrorDiv.textContent = 'Por favor, completa todos los campos.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
 
-        if (username.length < 4) {
-            mensajeErrorDiv.text('El nombre de usuario debe tener al menos 4 caracteres.').removeClass('d-none');
-            return;
-        }
+            const soloLetrasRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
+            if (!soloLetrasRegex.test(nombre)) {
+                mensajeErrorDiv.textContent = 'El nombre solo puede contener letras.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+            if (!soloLetrasRegex.test(apellido)) {
+                mensajeErrorDiv.textContent = 'El apellido solo puede contener letras.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
 
-        const telefonoRegex = /^9\d{8}$/;
-        if (!telefonoRegex.test(telefono)) {
-            mensajeErrorDiv.text('El teléfono debe comenzar con 9 y tener 9 dígitos.').removeClass('d-none');
-            return;
-        }
+            const rutRegex = /^\d{7,8}-[0-9Kk]$/;
+            if (!rutRegex.test(rut)) {
+                mensajeErrorDiv.textContent = 'El RUT debe tener un formato válido (ej: 12345678-9).';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
 
-        if (password.length < 8) {
-            mensajeErrorDiv.text('La contraseña debe tener al menos 8 caracteres.').removeClass('d-none');
-            return;
-        }
+            if (username.length < 4) {
+                mensajeErrorDiv.textContent = 'El nombre de usuario debe tener al menos 4 caracteres.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
+            const telefonoRegex = /^9\d{8}$/;
+            if (!telefonoRegex.test(telefono)) {
+                mensajeErrorDiv.textContent = 'El teléfono debe comenzar con 9 y tener 9 dígitos.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
+            if (password.length < 8) {
+                mensajeErrorDiv.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
         
-        alert('¡Registro exitoso!');
-        $('#registroModal').modal('hide'); 
-        $('#form2')[0].reset(); 
-    });
+            alert('¡Registro exitoso!');
+            registroModal.hide(); 
+            form.reset(); 
+        });
+    }
 
-    $('#btnIniciarLogin').on('click', function (e) {
-        e.preventDefault(); 
+    if (btnLogin) {
+        btnLogin.addEventListener('click', function (e) {
+            e.preventDefault();
 
-        const username = $('#loginUsername').val().trim();
-        const password = $('#loginPassword').val().trim();
-        const mensajeErrorDiv = $('#mensajeErrorLogin');
-        
-        mensajeErrorDiv.addClass('d-none');
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const mensajeErrorDiv = document.getElementById('mensajeErrorLogin');
+            const form = document.getElementById('loginForm');
 
-        if (username === '' || password === '') {
-            mensajeErrorDiv.text('Por favor, completa todos los campos.').removeClass('d-none');
-            return;
+            mensajeErrorDiv.classList.add('d-none');
+
+            if (username === '' || password === '') {
+                mensajeErrorDiv.textContent = 'Por favor, completa todos los campos.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
+            if (username.length < 4) {
+                mensajeErrorDiv.textContent = 'El nombre de usuario debe tener al menos 4 caracteres.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
+            if (password.length < 8) {
+                mensajeErrorDiv.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+                mensajeErrorDiv.classList.remove('d-none');
+                return;
+            }
+
+            alert('¡Inicio de sesión exitoso!');
+            loginModal.hide(); 
+            form.reset(); 
+        });
+    }
+
+    [registroModalEl, loginModalEl].forEach(modalEl => {
+        if (modalEl) {
+            modalEl.addEventListener('hidden.bs.modal', function () {
+                const errorDiv = modalEl.querySelector('.alert');
+                const form = modalEl.querySelector('form');
+                
+                if (errorDiv) {
+                    errorDiv.classList.add('d-none');
+                }
+                if (form) {
+                    form.reset();
+                }
+            });
         }
-
-        if (username.length < 4) {
-            mensajeErrorDiv.text('El nombre de usuario debe tener al menos 4 caracteres.').removeClass('d-none');
-            return;
-        }
-
-        if (password.length < 8) {
-            mensajeErrorDiv.text('La contraseña debe tener al menos 8 caracteres.').removeClass('d-none');
-            return;
-        }
-
-        alert('¡Inicio de sesión exitoso!');
-        $('#loginModal').modal('hide');
-        $('#loginForm')[0].reset();
-    });
-
-    $('#registroModal, #loginModal').on('hidden.bs.modal', function () {
-        $(this).find('.alert').addClass('d-none');
-        $(this).find('form')[0].reset();
     });
 });
