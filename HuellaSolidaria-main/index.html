@@ -14,15 +14,22 @@
 <body>
 
     <header>
+        <!-- Añado logo huella solidaria -->
         <nav class="navbar navbar-expand-lg navbar-apple">
-            <div class="container-fluid"> <a class="navbar-brand" href="#">Huella Solidaria</a>
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8971/8971659.png" alt="Logo Huella Solidaria"
+                        width="30" height="30" class="me-2">
+                    Huella Solidaria</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0"> <li class="nav-item dropdown">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Productos
@@ -44,17 +51,25 @@
                                 <a class="dropdown-item" href="#">Servicio C</a>
                             </div>
                         </li>
+                        
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Fundaciones
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Fundaciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <a class="dropdown-item" href="https://www.garrasypatas.cl/" target="_blank">
+                                Fundación Garras y Patas
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                <a class="dropdown-item" href="#">Fundación X</a>
-                                <a class="dropdown-item" href="#">Fundación Y</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Fundación Z</a>
-                            </div>
+                            <a class="dropdown-item" href="https://fundacionadopta.cl/" target="_blank">
+                                Fundación Adopta
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://fundacionhuellaanimal.cl/" target="_blank">
+                                Fundación Huella Animal
+                            </a>
+                        </div>
+                    </li>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Contacto</a>
@@ -76,6 +91,7 @@
         </nav>
     </header>
 
+    <!-- OFERTAS -->
     <main>
         <div class="container mt-4">
 
@@ -85,15 +101,18 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <img class="card-img-top"
-                                    src="https://media.falabella.com/tottusCL/20403287_1/w=800,h=800,fit=pad"
+
+                                <!-- Cambio imágenes, texto, estilo de sección 'Oferta'. Unifico el tamaño y centrado de productos de estas cards (acorde al CSS) -->
+
+                                <img class="card-img-top product-img p-3"
+                                    src="https://ahorropuntopet.cl/wp-content/uploads/2023/03/FATV0001.png"
                                     alt="Saco de comida para gato">
                                 <div class="card-body d-flex flex-column">
-                                    <h6 class="card-subtitle mb-2 text-muted">Purina Cat Chow</h6>
-                                    <h5 class="card-title">Cat Chow Gatitos 8kg</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Nutrique</h6>
+                                    <h5 class="card-title">Nutrique Baby Cat & Kitten Pavo 2Kg</h5>
                                     <div class="precio-container">
-                                        <del class="text-muted">$29.990</del>
-                                        <span class="precio-oferta h4 fw-bold ms-2">$24.990</span>
+                                        <del class="text-muted">$22.500</del>
+                                        <span class="precio-oferta h4 fw-bold ms-2">$17.400</span>
                                     </div>
                                     <div class="mt-auto">
                                         <a href="#" class="btn btn-primary w-100 mb-2">Comprar ahora</a>
@@ -104,15 +123,16 @@
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <img class="card-img-top"
-                                    src="https://cdnx.jumpseller.com/pet-bj/image/25958961/FIT-02.jpg?1688341738"
-                                    alt="Saco de comida para gato">
+                                <img class="card-img-top product-img p-3"
+                                    src="https://ahorropuntopet.cl/wp-content/uploads/2023/08/Weight_Control_FELINE_CL_Med._Res.___Basic.jpg"
+                                    alt="Saco de comida para gato castrado">
                                 <div class="card-body d-flex flex-column">
                                     <h6 class="card-subtitle mb-2 text-muted">Royal Canin</h6>
-                                    <h5 class="card-title">Royal Canin Fit 32 7.5kg</h5>
+                                    <h5 class="card-title">Royal Canin Gato Adulto Castrados Weight Control 1.5Kg (Seco)
+                                    </h5>
                                     <div class="precio-container">
-                                        <del class="text-muted">$41.990</del>
-                                        <span class="precio-oferta h4 fw-bold ms-2">$35.490</span>
+                                        <del class="text-muted">$20.000</del>
+                                        <span class="precio-oferta h4 fw-bold ms-2">$17.580</span>
                                     </div>
                                     <div class="mt-auto">
                                         <a href="#" class="btn btn-primary w-100 mb-2">Comprar ahora</a>
@@ -123,15 +143,15 @@
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
-                                <img class="card-img-top"
-                                    src="https://www.distribuidoralira.cl/wp-content/uploads/2025/03/731794001095_Left.jpg"
-                                    alt="Saco de comida para gato">
+                                <img class="card-img-top product-img p-3"
+                                    src="https://ahorropuntopet.cl/wp-content/uploads/2025/08/Nomade-Senior-15kg.jpg"
+                                    alt="Saco de comida para perro senior">
                                 <div class="card-body d-flex flex-column">
-                                    <h6 class="card-subtitle mb-2 text-muted">Bil-Jac</h6>
-                                    <h5 class="card-title">Bil-Jac Adult Select 2.7kg</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Nómade</h6>
+                                    <h5 class="card-title">Nomade Senior 15Kg</h5>
                                     <div class="precio-container">
-                                        <del class="text-muted">$22.990</del>
-                                        <span class="precio-oferta h4 fw-bold ms-2">$18.990</span>
+                                        <del class="text-muted">$35.000</del>
+                                        <span class="precio-oferta h4 fw-bold ms-2">$32.000</span>
                                     </div>
                                     <div class="mt-auto">
                                         <a href="#" class="btn btn-primary w-100 mb-2">Comprar ahora</a>
@@ -144,51 +164,67 @@
                 </div>
             </section>
 
-            <div id="carouselExampleIndicators" class="carousel slide">
+            <!-- Añado my-5 en el contenedor principal para dar separación vertical-->
+            <div id="carouselExampleIndicators" class="carousel slide my-5">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
+
                 <div class="carousel-inner">
+                    <!-- Slide 1  video -->
                     <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/800x400?text=Imagen+Principal+1" class="d-block w-100"
-                            alt="Productos">
+                        <div class="ratio ratio-16x9 carousel-media">
+                            <iframe src="https://www.youtube.com/embed/7VJM_oCHdOc"
+                                title="Fundación Rescatando Patitas - Apoyando comunidades"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen class="rounded-3"></iframe>
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Apoyando comunidades</h5>
+                            <p>Donamos el 5% de cada venta a nuestras fundaciones aliadas en Chile.</p>
                         </div>
                     </div>
+
+                    <!-- Slide 2 imagen -->
                     <div class="carousel-item">
-                        <img src="https://via.placeholder.com/800x400?text=Imagen+Principal+2" class="d-block w-100"
-                            alt="Servicios">
+                        <div class="ratio ratio-16x9 carousel-media">
+                            <img src="https://images.pexels.com/photos/26834696/pexels-photo-26834696.jpeg" class="rounded-3"
+                                alt="Voluntariado activo">
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Voluntariado activo</h5>
                         </div>
                     </div>
+
+                    <!-- Slide 3 imagen -->
                     <div class="carousel-item">
-                        <img src="https://via.placeholder.com/800x400?text=Imagen+Principal+3" class="d-block w-100"
-                            alt="Fundaciones">
+                        <div class="ratio ratio-16x9 carousel-media">
+                            <img src="https://images.pexels.com/photos/12195433/pexels-photo-12195433.jpeg" class="rounded-3"
+                                alt="Impacto ambiental">
+                        </div>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Impacto ambiental</h5>
                         </div>
                     </div>
-                </div>
+                    </div>
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">Anterior</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">Siguiente</span>
                 </button>
             </div>
 
-        </div>
     </main>
 
     <footer id="contacto" class="bg-light text-center text-lg-start mt-5">
@@ -288,7 +324,8 @@
                         </div>
                         <div class="col-md-6">
                             <label for="registroRegion" class="form-label">Región</label>
-                            <select class="form-select" id="registroRegion" required> <option selected disabled value="">Seleccionar...</option>
+                            <select class="form-select" id="registroRegion" required>
+                                <option selected disabled value="">Seleccionar...</option>
                                 <option>Región de Arica y Parinacota</option>
                                 <option>Región de Tarapacá</option>
                                 <option>Región de Antofagasta</option>
