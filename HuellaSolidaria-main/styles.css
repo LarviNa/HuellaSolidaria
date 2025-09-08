@@ -1,16 +1,19 @@
-/* Desplazamiento suave para anclas (AÑADIDO) */
+/* Desplazamiento suave al hacer clic en enlaces internos*/
+
 html {
     scroll-behavior: smooth;
 }
 
 /* Estilos generales con tonos lavanda pastel */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: linear-gradient(180deg, #f5f5f7 0%, #e6d7f2 100%);
     color: #333;
 }
 
-/* Estilo barra de navegación */
+/* Barra de navegación */
+
 .navbar-apple {
     background: linear-gradient(90deg, #c8a2c8, #e6d7f2);
     border-bottom: 1px solid #d1b3d1;
@@ -36,6 +39,7 @@ body {
 }
 
 /* Menú desplegable */
+
 .dropdown-menu {
     border: 1px solid #d1b3d1;
     border-top: none;
@@ -43,7 +47,8 @@ body {
     box-shadow: 0 5px 15px rgba(160, 120, 160, 0.2);
 }
 
-/* Menús desplegables en escritorio */
+/* Menú desplegable en escritorio */
+
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown:hover .dropdown-menu {
         display: block;
@@ -51,15 +56,41 @@ body {
     }
 }
 
-/* Carrusel */
-.carousel-item img {
-    height: 400px;
-    object-fit: cover;
+/* CARRUSEL RESPONSIVO */
+.carousel-item {
+    min-height: clamp(180px, 28vw, 340px);
+    overflow: hidden;
+}
+
+/* Contenedor común con altura responsiva */
+.carousel-media {
+    aspect-ratio: 16 / 9;
+    height: clamp(180px, 28vw, 340px);
     width: 100%;
+    margin: 0 auto;
+}
+
+/* Estilos Contenido interno carrusel */
+.carousel-media > iframe,
+.carousel-media > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                 
+    border: 0;
+    border-radius: 8px;                
+    box-shadow: 0 6px 15px rgba(160, 120, 160, 0.3); 
+}
+
+/* Imágenes del carrusel */
+.carousel-item img {
+    width: 100%;
+    height: auto;                  
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 6px 15px rgba(160, 120, 160, 0.3);
 }
 
+/* Caption del carrusel */
 .carousel-caption {
     background: linear-gradient(180deg, rgba(200, 162, 200, 0.8), rgba(168, 108, 168, 0.6));
     border-radius: 10px;
@@ -67,7 +98,13 @@ body {
     color: #fff;
 }
 
-/* Estilos para las tarjetas de producto */
+/* Espacio para que carrusel no toque borde del footer */
+.carousel-caption {
+    padding-bottom: 0.75rem;
+}
+
+/* Tarjetas de producto de 'Ofertas' */
+
 .card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid #d1b3d1;
@@ -86,7 +123,8 @@ body {
     color: #d9534f;
 }
 
-/* Estilo para los botones de las tarjetas */
+/* Botones de las tarjetas de 'Oferta'*/
+
 .card .btn-primary {
     background-color: #7b3f7b;
     border-color: #7b3f7b;
@@ -107,7 +145,30 @@ body {
     color: #fff;
 }
 
+/* Imagenes de las tarjetas de 'Oferta'*/
+
+@media (min-width: 576px) {
+  .product-img {
+    max-height: 260px;   
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-img {
+    max-height: 300px;   
+  }
+}
+
+@media (min-width: 992px) {
+  .product-img {
+    max-height: 340px;   
+  }
+}
+
+
 /* Footer */
+
 footer {
     background: linear-gradient(180deg, #c8a2c8, #e6d7f2);
     color: #4a2c4a;
@@ -123,7 +184,9 @@ footer a:hover {
 }
 
 /* Franja inferior del footer */
+
 footer .p-3 {
     background: linear-gradient(90deg, #e6d7f2, #c8a2c8) !important;
     color: #4a2c4a;
 }
+
